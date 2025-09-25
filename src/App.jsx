@@ -757,10 +757,10 @@ function App() {
                           </div>
                           <div
                             className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam2.png')}
+                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam2.jpg')}
                           >
                             <img
-                              src="/src/assets/image/NewsImage/families/fam2.png"
+                              src="/src/assets/image/NewsImage/families/fam2.jpg"
                               alt="Family 2"
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
