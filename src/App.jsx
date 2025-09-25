@@ -10,11 +10,11 @@ const useGallery = () => {
     const entries = Object.entries(modules).map(([path, mod]) => ({ path, src: mod.default }))
     const groupBy = (pred) => entries.filter(({ path }) => pred(path)).map(({ src }) => src)
     return {
-      'Our Journey (2017-2023)': groupBy((p) => p.includes('/2017_2023/') && !p.includes('/birthday/')),
-      'Birthday Celebrations': groupBy((p) => p.includes('/2017_2023/birthday/')),
+      'Our Journey (2017-2023)': groupBy((p) => p.includes('/NewsImage/Our/')),
+      'Birthday Celebrations': groupBy((p) => p.includes('/NewsImage/birthday/')),
       'The Proposal (2025)': groupBy((p) => p.includes('/2025/proposal/')),
       'At Church': groupBy((p) => p.includes('/2025/at_church/')),
-      'With Family': groupBy((p) => p.includes('/2025/with family/')),
+      'With Family': groupBy((p) => p.includes('/NewsImage/families/')),
     }
   }, [])
   return allImages
@@ -441,7 +441,7 @@ function App() {
                     <span className="text-pink-600">📍</span>
                   </div>
                   <div>
-                    <p className="font-semibold text-gray-800">Nyarugenge District</p>
+                    <p className="font-semibold text-gray-800">Nyarugenge Sector</p>
                     <p className="text-gray-600 text-sm">Civil Wedding Headquarters</p>
                   </div>
                 </div>
@@ -791,17 +791,6 @@ function App() {
           </div>
 
           {/* View All Photos Button */}
-          <div className="text-center mt-20">
-            <button
-              onClick={() => {
-                setActiveCategory('all')
-                setShowAllPhotos(false)
-              }}
-              className="bg-gradient-to-r from-pink-500 to-rose-500 text-white font-semibold py-4 px-8 rounded-full hover:from-pink-600 hover:to-rose-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-            >
-              View All Photos ({Object.values(collections).flat().length} photos)
-            </button>
-          </div>
 
           {/* Traditional Grid for "All Photos" */}
           {activeCategory === 'all' && (
@@ -1010,7 +999,7 @@ function App() {
                     <div>
                       <h4 className="font-semibold text-gray-800">Civil Wedding</h4>
                       <p className="text-sm text-gray-600">November 27, 2025</p>
-                      <p className="text-sm text-gray-600">Nyarugenge District Headquarters</p>
+                      <p className="text-sm text-gray-600">Nyarugenge Sector Headquarters</p>
                     </div>
                   </div>
                 </div>
