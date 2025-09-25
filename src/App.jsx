@@ -873,31 +873,56 @@ function App() {
               </div>
 
               <div className="space-y-6">
+                {/* Contact Information Display */}
+                <div className="bg-gradient-to-r from-blue-50 to-pink-50 rounded-xl p-6 mb-6">
+                  <h4 className="text-lg font-semibold text-gray-800 mb-4 text-center">📞 Contact Information</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="text-center p-4 bg-white rounded-lg shadow-sm border-2 border-blue-200">
+                      <div className="text-blue-600 text-2xl mb-2">🤵</div>
+                      <div className="text-blue-600 font-semibold">Groom</div>
+                      <div className="font-bold text-gray-800 text-lg mt-1">TUYIZERE Oreste</div>
+                      <div className="text-blue-600 font-mono text-lg mt-2 bg-blue-50 rounded-lg py-2 px-3">
+                        📱 0788917561
+                      </div>
+                    </div>
+                    <div className="text-center p-4 bg-white rounded-lg shadow-sm border-2 border-pink-200">
+                      <div className="text-pink-600 text-2xl mb-2">👰</div>
+                      <div className="text-pink-600 font-semibold">Bride</div>
+                      <div className="font-bold text-gray-800 text-lg mt-1">AKIMANA Nadine</div>
+                      <div className="text-pink-600 font-mono text-lg mt-2 bg-pink-50 rounded-lg py-2 px-3">
+                        📱 0787665880
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 {/* Recipient Selection */}
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-3">Choose Recipient</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-3">Choose Recipient for Mobile Money</label>
                   <div className="grid grid-cols-2 gap-4">
                     <button
                       onClick={() => setSelectedRecipient('groom')}
                       className={`p-4 rounded-xl border-2 transition-all duration-300 text-center ${selectedRecipient === 'groom'
-                        ? 'border-pink-500 bg-pink-50'
-                        : 'border-gray-200 hover:border-pink-300'
+                        ? 'border-blue-500 bg-blue-50'
+                        : 'border-gray-200 hover:border-blue-300'
                         }`}
                     >
                       <div className="text-2xl mb-2">🤵</div>
-                      <div className="font-medium text-gray-800">Groom</div>
+                      <div className="font-medium text-gray-800">Send to Groom</div>
                       <div className="text-sm text-gray-600">TUYIZERE Oreste</div>
+                      <div className="text-xs text-blue-600 font-mono mt-1">0788917561</div>
                     </button>
                     <button
                       onClick={() => setSelectedRecipient('bride')}
                       className={`p-4 rounded-xl border-2 transition-all duration-300 text-center ${selectedRecipient === 'bride'
-                        ? 'border-rose-500 bg-rose-50'
-                        : 'border-gray-200 hover:border-rose-300'
+                        ? 'border-pink-500 bg-pink-50'
+                        : 'border-gray-200 hover:border-pink-300'
                         }`}
                     >
                       <div className="text-2xl mb-2">👰</div>
-                      <div className="font-medium text-gray-800">Bride</div>
+                      <div className="font-medium text-gray-800">Send to Bride</div>
                       <div className="text-sm text-gray-600">AKIMANA Nadine</div>
+                      <div className="text-xs text-pink-600 font-mono mt-1">0787665880</div>
                     </button>
                   </div>
                 </div>
