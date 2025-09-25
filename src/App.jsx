@@ -3,6 +3,9 @@ import WeddingInvitation from './assets/image/weeding_invitatio.jpg'
 import QRCode from './assets/image/qr_code.png'
 import HeroImage from './assets/image/2025/proposal/10.JPG'
 import WeddingVideo from './assets/video/wedding_oreste.mp4'
+import Fam1Image from './assets/image/NewsImage/families/fam1.jpg'
+import Fam2Image from './assets/image/NewsImage/families/fam2.jpg'
+import FamilyVideo from './assets/image/NewsImage/families/video.mp4'
 
 const useGallery = () => {
   const allImages = useMemo(() => {
@@ -747,20 +750,20 @@ function App() {
                           <h5 className="text-sm font-medium text-gray-700 text-center">With Family</h5>
                           <div
                             className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam1.jpg')}
+                            onClick={() => setSelectedImage(Fam1Image)}
                           >
                             <img
-                              src="/src/assets/image/NewsImage/families/fam1.jpg"
+                              src={Fam1Image}
                               alt="Family 1"
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
                           </div>
                           <div
                             className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam2.jpg')}
+                            onClick={() => setSelectedImage(Fam2Image)}
                           >
                             <img
-                              src="/src/assets/image/NewsImage/families/fam2.jpg"
+                              src={Fam2Image}
                               alt="Family 2"
                               className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                             />
@@ -815,7 +818,7 @@ function App() {
                     muted
                     playsInline
                   >
-                    <source src="/src/assets/image/NewsImage/families/video.mp4" type="video/mp4" />
+                    <source src={FamilyVideo} type="video/mp4" />
                   </video>
                   {/* Play Button Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-all duration-300">
@@ -1211,7 +1214,7 @@ function App() {
                 autoPlay
                 onClick={(e) => e.stopPropagation()}
               >
-                <source src="/src/assets/image/NewsImage/families/video.mp4" type="video/mp4" />
+                <source src={FamilyVideo} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
 
