@@ -6,6 +6,8 @@ import WeddingVideo from './assets/video/wedding_oreste.mp4'
 import Fam1Image from './assets/image/NewsImage/families/fam1.jpg'
 import Fam2Image from './assets/image/NewsImage/families/fam2.jpg'
 import FamilyVideo from './assets/image/NewsImage/families/video.mp4'
+import ChurchImage1 from './assets/image/NewsImage/families/1 (2).jpg'
+import ChurchImage2 from './assets/image/NewsImage/families/1 (8).jpg'
 
 const useGallery = () => {
   const allImages = useMemo(() => {
@@ -732,19 +734,26 @@ function App() {
                       <div className="grid grid-cols-2 gap-3">
                         <div className="space-y-3">
                           <h5 className="text-sm font-medium text-gray-700 text-center">At Church</h5>
-                          {collections['At Church']?.slice(0, 2).map((src, index) => (
-                            <div
-                              key={index}
-                              className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                              onClick={() => setSelectedImage(src)}
-                            >
-                              <img
-                                src={src}
-                                alt={`Church ${index + 1}`}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                              />
-                            </div>
-                          ))}
+                          <div
+                            className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                            onClick={() => setSelectedImage(ChurchImage1)}
+                          >
+                            <img
+                              src={ChurchImage1}
+                              alt="Church 1"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                          <div
+                            className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                            onClick={() => setSelectedImage(ChurchImage2)}
+                          >
+                            <img
+                              src={ChurchImage2}
+                              alt="Church 2"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
                         </div>
                         <div className="space-y-3">
                           <h5 className="text-sm font-medium text-gray-700 text-center">With Family</h5>
