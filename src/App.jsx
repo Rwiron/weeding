@@ -27,6 +27,7 @@ function App() {
   const [activeCategory, setActiveCategory] = useState('all')
   const [activeSection, setActiveSection] = useState('home')
   const [showVideoModal, setShowVideoModal] = useState(false)
+  const [showFamilyVideoModal, setShowFamilyVideoModal] = useState(false)
   const [selectedRecipient, setSelectedRecipient] = useState('')
   const [donationAmount, setDonationAmount] = useState('')
   const [ussdCode, setUssdCode] = useState('')
@@ -744,19 +745,26 @@ function App() {
                         </div>
                         <div className="space-y-3">
                           <h5 className="text-sm font-medium text-gray-700 text-center">With Family</h5>
-                          {collections['With Family']?.slice(0, 2).map((src, index) => (
-                            <div
-                              key={index}
-                              className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                              onClick={() => setSelectedImage(src)}
-                            >
-                              <img
-                                src={src}
-                                alt={`Family ${index + 1}`}
-                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                              />
-                            </div>
-                          ))}
+                          <div
+                            className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam1.jpg')}
+                          >
+                            <img
+                              src="/src/assets/image/NewsImage/families/fam1.jpg"
+                              alt="Family 1"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
+                          <div
+                            className="aspect-video overflow-hidden rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                            onClick={() => setSelectedImage('/src/assets/image/NewsImage/families/fam2.png')}
+                          >
+                            <img
+                              src="/src/assets/image/NewsImage/families/fam2.png"
+                              alt="Family 2"
+                              className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                            />
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -797,7 +805,34 @@ function App() {
             <div className="mt-16">
               <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">All Our Memories</h3>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
-                {(showAllPhotos ? filteredImages : filteredImages.slice(0, 5)).map((src, index) => (
+                {/* Family Video Card - Always First */}
+                <div
+                  className="aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group transform hover:scale-105 relative"
+                  onClick={() => setShowFamilyVideoModal(true)}
+                >
+                  <video
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    muted
+                    playsInline
+                  >
+                    <source src="/src/assets/image/NewsImage/families/video.mp4" type="video/mp4" />
+                  </video>
+                  {/* Play Button Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-all duration-300">
+                    <div className="w-16 h-16 bg-white bg-opacity-90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                      <svg className="w-8 h-8 text-rose-500 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </div>
+                  </div>
+                  {/* Video Label */}
+                  <div className="absolute bottom-2 left-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                    Family Video
+                  </div>
+                </div>
+
+                {/* Photo Grid */}
+                {(showAllPhotos ? filteredImages : filteredImages.slice(0, 4)).map((src, index) => (
                   <div
                     key={index}
                     className="aspect-square overflow-hidden rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 cursor-pointer group transform hover:scale-105"
@@ -1156,6 +1191,42 @@ function App() {
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
                 <h3 className="text-white text-2xl font-bold mb-2">Our Wedding Story</h3>
                 <p className="text-white/80">TUYIZERE Oreste & AKIMANA Nadine</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Family Video Modal */}
+      {showFamilyVideoModal && (
+        <div
+          className="fixed inset-0 bg-black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+          onClick={() => setShowFamilyVideoModal(false)}
+        >
+          <div className="relative max-w-5xl w-full max-h-full">
+            <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl">
+              <video
+                className="w-full h-auto max-h-[80vh] rounded-2xl"
+                controls
+                autoPlay
+                onClick={(e) => e.stopPropagation()}
+              >
+                <source src="/src/assets/image/NewsImage/families/video.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+
+              {/* Close Button */}
+              <button
+                onClick={() => setShowFamilyVideoModal(false)}
+                className="absolute top-4 right-4 text-white bg-black/50 backdrop-blur-md rounded-full w-12 h-12 flex items-center justify-center hover:bg-black/75 transition-all duration-300 text-xl border border-white/20"
+              >
+                ✕
+              </button>
+
+              {/* Video Title */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">Our Family Moments</h3>
+                <p className="text-white/80">Beautiful memories with our loved ones</p>
               </div>
             </div>
           </div>
